@@ -1,0 +1,46 @@
+.sidebar{
+    width: 100px;
+    border-right: 1px solid #E6E3E3;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    height: 70px;
+    width: 70px;
+}
+
+.mid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:30px;
+}
+
+
+.bottom{
+    margin-bottom: 25px;
+}
+
+.icon{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.bell{
+    position: relative;
+}
+
+.notify{
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: red;
+    top: -1px;
+    right: 0px;
+}

@@ -22,28 +22,19 @@ const registrar = async(req, res) => {
 }
 
 
-const getPublicUser = async(req, res, next) => {
-    const { email, username } = req.body;
+const getPublicUser = async(req, res) =>{
+    const {id} = req.params;
 
-    const [user] = await Usuario.find({ $or: [{ email }, { username }] });
+    const usuario = await Usuario.findById(id).select("-password -confirmado -token -createdAt -updatedAt -__v")
 
-    try {
-        ((user.email != email) || (user.username != username)) ?
-        res.status(404).json({ msg: 'Not Found' }): res.json({
-            user: {
-                name: 'Pending',
-                lastname: 'Pending',
-                username: user.username,
-                email: user.email,
-                avatar: user.avatar,
-                posts: 'Pending'
-            }
-        })
-    } catch (error) {
-        console.error(error)
+    if(!usuario){
+        const error = new Error("Usuario no existe")
+        return res.status(404).json({ msg: error.message })
     }
 
-    next()
+
+    res.json(usuario)
+
 }
 
 export { registrar, getPublicUser }

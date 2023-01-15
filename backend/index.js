@@ -2,9 +2,12 @@ import express from "express";
 import conectarDb from "./config/db.js";
 import dotenv from "dotenv"
 import usuariosRoutes from "./routes/usuariosRoutes.js"
+import BodyParser from "body-parser";
 const app = express();
 
+
 app.use(express.json())
+app.use(BodyParser.urlencoded({ extended: true }));
 
 dotenv.config()
 conectarDb()

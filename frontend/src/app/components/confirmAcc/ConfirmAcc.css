@@ -1,0 +1,18 @@
+.confirm-head{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirm-logo{
+    height: 50px;
+}
+
+.confirm-loading h3{
+    display: flex;
+    justify-content: center;
+}
+
+.confirm-sucess{
+    color: green;
+}

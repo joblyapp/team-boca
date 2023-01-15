@@ -31,7 +31,7 @@ const registrar = async(req, res) => {
 const getPublicUser = async(req, res) =>{
     const {id} = req.params;
 
-    const usuario = await Usuario.findById(id).select("-password -confirmado -token -createdAt -updatedAt -__v")
+    const usuario = await Usuario.findById(id).select("-password -createdAt -updatedAt -__v")
 
     if(!usuario){
         const error = new Error("Usuario no existe")
@@ -43,4 +43,43 @@ const getPublicUser = async(req, res) =>{
 
 }
 
-export { registrar, getPublicUser }
+
+const confirmAcc = async(req,res)=> {
+    const {token} = req.params;
+    const existeUsuario = await Usuario.findOne({ token })
+
+    try {
+        
+        if(existeUsuario.confirmado){
+            res.json({msg:" Usuario confirmado exitosamente, aguarde y sera redireccionado..."})
+            
+        }
+        else if(existeUsuario){
+            Usuario.findOne({
+                token: token
+              })
+              .then((usuario) => {
+                usuario.confirmado = true;
+                usuario
+                  .save()
+                  .then(() => {
+                    res.jsonp({ msg:"Usuario confirmado exitosamente, aguarde y sera redireccionado" }); // enviamos la boleta de vuelta
+                    setTimeout(() => {
+                    
+                    }, 5000);
+                });
+              });
+        }
+        else{
+            res.json({msg:"Ups, algo salio mal!"})
+        }
+
+    } catch (error) {
+        res.json({msg:"Ups, ocurrio un error"})
+        console.log(error)
+    }
+}
+
+
+
+export { registrar, getPublicUser, confirmAcc }

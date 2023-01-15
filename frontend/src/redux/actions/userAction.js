@@ -1,7 +1,8 @@
 import axios from 'axios'
-import { getUser } from '../slices/userSlice'
+import { getUser, confirmCuenta } from '../slices/userSlice'
 
-const url = "nuestro URL"
+
+const url = "localhost:3002"
 
 // Ejemplo proyecto Pasado
 export const logIn = (email, password) => async (dispatch) =>{
@@ -29,4 +30,17 @@ export const logOut = ()  => async (dispatch) =>{
 
 }
 
+
+export const confirmAcc =(token)=> async (dispatch) => {
+    try{
+        
+        let res = await axios.get(`http://${url}/api/usuarios/confirm/${token}`)
+        
+        dispatch(confirmCuenta(res.data))
+        
+    }catch(e){
+        
+        console.log(e + "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+    }
+}
 

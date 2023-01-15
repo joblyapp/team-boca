@@ -4,7 +4,8 @@ export const userSlice = createSlice({
   name: "user",
   initialState: {
     user: {},
-    user2:[]
+    user2:[],
+    confirmation:[]
   },
   reducers: {
 
@@ -12,11 +13,16 @@ export const userSlice = createSlice({
       state.user = action.payload;
     },
 
+    confirmCuenta:(state,action)=>{
+      state.confirmation = action.payload
+    }
+
   },
 });
 
 export const {
-  getUser,  
+  getUser,
+  confirmCuenta,  
 } = userSlice.actions;
 
 export default userSlice.reducer;

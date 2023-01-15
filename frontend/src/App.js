@@ -5,6 +5,7 @@ import Home from "./app/pages/Home/Home"
 import Register from './app/pages/Register/Register';
 import Login from './app/pages/Login/Login';
 import Profile from './app/components/profile/Profile';
+import ConfirmAcc from './app/components/confirmAcc/ConfirmAcc';
 function App() {
   return (
     <div className="App">
@@ -15,6 +16,7 @@ function App() {
           <Route path="register" element={<Register/>} />
           <Route path="login" element={<Login/>} />
           <Route path="profile" element={<Profile/>} />
+          <Route exact path="/confirm-account/:token" element={<ConfirmAcc/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

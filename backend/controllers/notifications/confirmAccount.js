@@ -2,6 +2,7 @@ import nodemailer from "nodemailer"
 
 
 
+
 export default function confirmAccount(user){
     let transporter = nodemailer.createTransport({
       host: `${process.env.HOST_EMAIL}`,
@@ -12,9 +13,8 @@ export default function confirmAccount(user){
         pass: `${process.env.EMAIL_PASS}`,
       },
     });
-    
-    const urlConfirm = "http://localhost:3000/"
-  
+    const urlConfirm = `http://${process.env.URL_FRONT}/confirm-account/${user.token}`
+
     return transporter
       .sendMail({
         from: "fanzcars.notifications@gmail.com",

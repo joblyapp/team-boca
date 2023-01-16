@@ -1,7 +1,7 @@
 import Usuario from "../models/Usuario.js"
 import token from "../helpers/token.js"
 
-import confirmAccount  from "./notifications/confirmAccount.js"
+import confirmAccount  from "../helpers/notifications/confirmAccount.js"
 
 const registrar = async(req, res) => {
     const { email } = req.body
@@ -51,7 +51,7 @@ const confirmAcc = async(req,res)=> {
     try {
         
         if(existeUsuario.confirmado){
-            res.json({msg:" Usuario confirmado exitosamente, aguarde y sera redireccionado..."})
+            res.json({msg:" Usuario confirmado exitosamente, aguarde y sera redireccionado"})
             
         }
         else if(existeUsuario){

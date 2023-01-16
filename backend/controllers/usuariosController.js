@@ -1,8 +1,10 @@
 import Usuario from "../models/Usuario.js"
 import token from "../helpers/token.js"
+
 import generarJWT from "../helpers/generarJWT.js"
-import confirmAccount  from "./notifications/confirmAccount.js"
 import { emailOlvidePassword } from "./notifications/olvidePassword.js"
+import confirmAccount  from "../helpers/notifications/confirmAccount.js"
+
 const registrar = async(req, res) => {
     const { email } = req.body
     const existeUsuario = await Usuario.findOne({ email })
@@ -105,7 +107,7 @@ const confirmAcc = async(req,res)=> {
     try {
         
         if(existeUsuario.confirmado){
-            res.json({msg:" Usuario confirmado exitosamente, aguarde y sera redireccionado..."})
+            res.json({msg:" Usuario confirmado exitosamente, aguarde y sera redireccionado"})
             
         }
         else if(existeUsuario){

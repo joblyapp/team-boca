@@ -7,6 +7,16 @@
     justify-content: center;
 }
 
+.alerta{
+    background-color: red;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    width: 500px;
+    text-align: center;
+    border-radius: 5px;
+}
+
 .register-form{
     margin-top: 20px;
     display: flex;

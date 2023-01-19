@@ -1,19 +1,19 @@
 import axios from 'axios'
 import { getUser, confirmCuenta } from '../slices/userSlice'
 
-
 const url = "localhost:3002"
-
 // Ejemplo proyecto Pasado
 export const logIn = (email, password) => async (dispatch) => {
     try {
-        let res = await axios.post(`http://${url}/user/login`, email, password)
+        let res = await axios.post("http://localhost:4000/api/usuarios/login", {email, password})
+        console.log(res)
         dispatch(getUser(res.data))
+        localStorage.setItem('token', res.data.token)
         return res.data
 
 
     } catch (e) {
-        let respuesta = JSON.parse(e.request.response).message;
+        let respuesta = JSON.parse(e.request.response.msg);
         console.log(respuesta)
     }
 

@@ -1,13 +1,17 @@
 import axios from 'axios'
 import {useState} from 'react'
 import {Link, useNavigate} from "react-router-dom"
+import {useDispatch, useSelector } from "react-redux"
+import { logIn } from '../../../redux/actions/userAction'
 import './Login.css'
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [alerta, setAlerta] = useState('')
-
+  const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  const login = useSelector((state) => state.user.user)
   const handleSubmit = async (e) => {
     e.preventDefault();
     if([email, password].includes('')){
@@ -16,11 +20,11 @@ const Login = () => {
     }
 
     try {
-      const {data} = await axios.post("http://localhost:4000/api/usuarios/login", {email, password}) //TODO: cubrir url en .env
+      dispatch(logIn(email, password))
       setAlerta('')
-      localStorage.setItem('token', data.token)
-      navigate("/")
-      console.log(data)
+      if(login._id){
+        navigate("/")
+      }
     } catch (error) {
       setAlerta(error.response.data.msg)
     }

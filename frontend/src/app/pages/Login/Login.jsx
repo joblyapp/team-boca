@@ -20,11 +20,11 @@ const Login = () => {
     }
 
     try {
-      dispatch(logIn(email, password))
+      const {data} = await axios.post("http://localhost:4000/api/usuarios/login", {email, password}) //TODO: Crear .env para esconder la url
       setAlerta('')
-      if(login._id){
-        navigate("/")
-      }
+      dispatch(logIn(data))
+      localStorage.setItem('token', data.token)
+      navigate("/")
     } catch (error) {
       setAlerta(error.response.data.msg)
     }

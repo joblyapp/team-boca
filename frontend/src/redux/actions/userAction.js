@@ -3,13 +3,10 @@ import { getUser, confirmCuenta } from '../slices/userSlice'
 
 const url = "localhost:3002"
 // Ejemplo proyecto Pasado
-export const logIn = (email, password) => async (dispatch) => {
+export const logIn = (data) => (dispatch) => {
     try {
-        let res = await axios.post("http://localhost:4000/api/usuarios/login", {email, password})
-        console.log(res)
-        dispatch(getUser(res.data))
-        localStorage.setItem('token', res.data.token)
-        return res.data
+        dispatch(getUser(data))
+        return data
 
 
     } catch (e) {

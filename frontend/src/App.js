@@ -8,6 +8,7 @@ import Profile from './app/components/profile/Profile';
 import ConfirmAcc from './app/components/confirmAcc/ConfirmAcc';
 import OlvidePassword from './app/pages/OlvidePassword/OlvidePassword';
 import NuevaPassword from './app/pages/NuevaPassword/NuevaPassword';
+import Admin from "./app/pages/Admin/Admin";
 function App() {
   return (
     <div className="App">
@@ -21,6 +22,7 @@ function App() {
           <Route path="olvide-password" element={<OlvidePassword/>} />
           <Route path="olvide-password/:token" element={<NuevaPassword/>} />
           <Route exact path="/confirm-account/:token" element={<ConfirmAcc/>}/>
+          <Route path="admin/home" element={<Admin/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

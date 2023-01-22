@@ -1,6 +1,9 @@
 import axios from 'axios'
 import {useState} from 'react'
 import "./OlvidePassword.css"
+
+const url = process.env.REACT_APP_HOST 
+
 const OlvidePassword = () => {
     const [email, setEmail] = useState('')
     const [alerta, setAlerta] = useState({})
@@ -17,7 +20,7 @@ const OlvidePassword = () => {
         }
 
         try {
-            const {data} = await axios.post("http://localhost:4000/api/usuarios/olvide-password", {email})
+            const {data} = await axios.post(`http://${url}/api/usuarios/olvide-password`, {email})
             setAlerta({
                 msg: data.msg,
                 error: false

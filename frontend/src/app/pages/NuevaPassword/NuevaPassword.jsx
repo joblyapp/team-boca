@@ -16,7 +16,7 @@ const NuevaPassword = () => {
     useEffect(() => {
         const comprobarToken = async () =>{
             try {
-                const {data} = await axios(`http://${url}/api/usuarios/olvide-password/${token}`)
+                const {data} = await axios(`https://${url}/api/usuarios/olvide-password/${token}`)
                 setTokenValido(true)
             } catch (error) {
                 setAlerta({
@@ -41,7 +41,7 @@ const NuevaPassword = () => {
         }
 
         try {
-            const {data} = await axios.post(`http://${url}/api/usuarios/olvide-password/${token}`, {password})
+            const {data} = await axios.post(`https://${url}/api/usuarios/olvide-password/${token}`, {password})
             setAlerta({
                 msg: data.msg,
                 error:false

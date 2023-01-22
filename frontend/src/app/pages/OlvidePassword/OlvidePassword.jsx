@@ -20,7 +20,7 @@ const OlvidePassword = () => {
         }
 
         try {
-            const {data} = await axios.post(`http://${url}/api/usuarios/olvide-password`, {email})
+            const {data} = await axios.post(`https://${url}/api/usuarios/olvide-password`, {email})
             setAlerta({
                 msg: data.msg,
                 error: false

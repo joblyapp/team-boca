@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { getUser, confirmCuenta } from '../slices/userSlice'
 
-const url = "localhost:3002"
+const url = process.env.REACT_APP_HOST
 // Ejemplo proyecto Pasado
 export const logIn = (data) => (dispatch) => {
     try {

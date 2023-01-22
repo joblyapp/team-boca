@@ -103,11 +103,11 @@ const getPublicUser = async(req, res) =>{
 const confirmAcc = async(req,res)=> {
     const {token} = req.params;
     const existeUsuario = await Usuario.findOne({ token })
-
+    
     try {
         
         if(existeUsuario.confirmado){
-            res.json({msg:" Usuario confirmado exitosamente, aguarde y sera redireccionado"})
+            res.json({msg:" Tu cuenta ya esta verificado, redireccion en 5 segundos"})
             
         }
         else if(existeUsuario){
@@ -116,7 +116,7 @@ const confirmAcc = async(req,res)=> {
               })
               .then((usuario) => {
                 usuario.confirmado = true;
-                usuario.token = '';
+                //usuario.token = '';
                 usuario
                   .save()
                   .then(() => {

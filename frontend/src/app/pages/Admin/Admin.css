@@ -14,7 +14,7 @@
     width: calc(100vw - 100px);
 }
 
-.title{
+.admin-title{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,7 +22,7 @@
     width: 100%;
     border-bottom: 1px solid #CAC4D0;
 }
-.title h1{
+.admin-title h1{
     font-size: 36px;
 }
 

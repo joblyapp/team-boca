@@ -10,13 +10,17 @@ const Home = () => {
         <Sidebar/>
         <div className="home-container">
           <div className="home-feed">
-            <h1 className="title">Home</h1>
-            <CreatePost/>
-
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
+            <div className="home-title">
+              <h1>Home</h1>
+            </div>
+            <div className="home-content">
+              <CreatePost/>
+              <Post/>
+              <Post/>
+              <Post/>
+              <Post/>  
+            </div>
+            
           </div>          
           <div>
             <Suggestion/>

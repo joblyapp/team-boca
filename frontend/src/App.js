@@ -22,7 +22,7 @@ function App() {
           <Route path="olvide-password" element={<OlvidePassword/>} />
           <Route path="olvide-password/:token" element={<NuevaPassword/>} />
           <Route exact path="/confirm-account/:token" element={<ConfirmAcc/>}/>
-          <Route path="admin/home" element={<Admin/>}/>
+          <Route path="admin" element={<Admin/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

@@ -17,11 +17,11 @@ const Post = () => {
         </div>
 
         <div className="post-content">
-            <span className="post-text">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec qu
-            </span>
-
             <img src={Car} alt='post-image' className='post-image'/>
+            <p className="post-text">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec qu
+            </p>
+
         </div>
 
 

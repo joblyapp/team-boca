@@ -8,13 +8,26 @@
     display: flex;
 }
 
-.title{
-    font-size: 50px;
+.home-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 100%;
+    border-bottom: 1px solid #CAC4D0;
+    padding: 0px;
+}
+
+.home-title h1{
+    font-size: 36px;
 }
 
 .home-feed{
     width: calc(100vw - 400px);
     height: 100vh;
     overflow-y: scroll;
-    padding: 50px 70px;
+}
+
+.home-content{
+    padding: 25px;
 }

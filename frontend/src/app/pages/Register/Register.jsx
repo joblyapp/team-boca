@@ -10,10 +10,12 @@ const Register = () => {
   
 
   return (
-    <div className="register">
-      <h1 className="title">Registrarse</h1>
+    <div className="register-container">
+      <div className="register-thumbnail"></div>
+      <div className="register">
+        <h1 className="title-register">Registrarse</h1>
 
-      <Formik
+        <Formik
             initialValues={{
                 email: "",
                 username:"",
@@ -48,30 +50,40 @@ const Register = () => {
                 dispacth(postRegister(valores))
             }}
         >
-{( {values,errors,touched,handleSubmit,handleChange,handleBlur} )=>(
+        {( {values,errors,touched,handleSubmit,handleChange,handleBlur} )=>(
 
-      <form className="register-form" onSubmit={handleSubmit}>
+        <form className="register-form" onSubmit={handleSubmit}>
 
-        <input type="email" className="register-input" name='email' placeholder="Email" value={values.email} onChange={handleChange} onBlur={handleBlur}/>
-        {touched.email && errors.email && <div className="errors">{errors.email}</div>}
+          <div className="register-box">
+            <input type="email" className="register-input" name='email' value={values.email} onChange={handleChange} onBlur={handleBlur} required="required"/>
+            <span>Email</span>
+            {touched.email && errors.email && <div className="errors">{errors.email}</div>}
+          </div>
 
-        <input type="text" className="register-input" name='username' placeholder="Username" value={values.username} onChange={handleChange} onBlur={handleBlur}/>
-        {touched.username && errors.username && <div className="errors">{errors.username}</div>}
+          <div className="register-box">
+            <input type="text" className="register-input" name='username' value={values.username} onChange={handleChange} onBlur={handleBlur} required="required"/>
+            <span>Username</span>
+            {touched.username && errors.username && <div className="errors">{errors.username}</div>}
+          </div>
+
+          <div className="register-box">
+            <input type="password" className="register-input" name='password' value={values.password} onChange={handleChange} onBlur={handleBlur} required="required"/>
+            <span>Password</span>
+            {touched.password && errors.password && <div className="errors">{errors.password}</div>}
+          </div>
+          <button type="submit" className="submit-register" value='Crear Cuenta'>Crear Cuenta</button>
+        </form>
+
+       )}
+
+        </Formik>
         
-        <input type="password" className="register-input" name='password' placeholder="Password" value={values.password} onChange={handleChange} onBlur={handleBlur}/>
-        {touched.password && errors.password && <div className="errors">{errors.password}</div>}
-
-        <button type="submit" className="submit-register" value='Crear Cuenta'>Crear Cuenta</button>
-      </form>
-
-      )}
-
-      </Formik>
-      <div className="redirect">
-        <span className='redirect-text'>¿Ya tienes una cuenta?</span>
-        <a href="/login" className='redirect-btn'>Iniciar Sesión</a>
+        <div className="redirect">
+          <hr/>
+          <span className='redirect-text'>¿Ya tienes una cuenta?</span>
+          <a href="/login" className='redirect-btn'>Iniciar Sesión</a>
+        </div>
       </div>
-      
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import './CreatePost.css'
-import Add from "../../utils/images/add-image.png"
+import Add from "../../utils/images/add-photo.png"
 const CreatePost = () => {
 
     const handleSubmit = e => {

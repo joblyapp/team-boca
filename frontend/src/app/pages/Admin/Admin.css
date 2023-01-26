@@ -30,22 +30,5 @@
     margin: 25px;
 }
 
-.tabs{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
 
-.tab{
-    height: 50px;
-    border: none;
-    background-color:transparent;
-    font-size: 14px;
-    cursor: pointer;
-    border-bottom: 1px solid #CAC4D0;
-}
 
-.active{
-    background-color: rgba(59,130,246,0.10);
-    border-bottom: 2px solid rgb(59,130,246);
-    font-weight: bold;
-}

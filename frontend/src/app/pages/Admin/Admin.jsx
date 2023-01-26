@@ -15,10 +15,7 @@ const Admin = () => {
                     <h1>Panel de Administración</h1>
                 </div>
                 <div className="admin-content">
-                    <div className="tabs">
-                        <button className={`tab ${tab ? "active" : ""}`} onClick={()=>setTab(true)}>Mis posts</button>
-                        <button className={`tab ${!tab ? "active" : ""}`} onClick={()=>setTab(false)}>Posts de usuarios</button>
-                    </div>
+                    
 
                     <Post/>
                     <Post/>

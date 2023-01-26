@@ -65,3 +65,32 @@
     width: 25px;
     cursor: pointer;
 }
+
+
+@media (max-width: 992px) {
+    .post-image{
+        height: 200px;
+    }
+
+    .post-text{
+        font-size: 14px;
+    }
+
+    .post-icon{
+        height: 16px;
+        width: 16px;
+    }
+
+    .profile-post{
+        width: 40px;
+        height: 40px;
+    }
+
+    .author-post{
+        font-size: 16px;
+    }
+
+    .date-post{
+        font-size: 14px;
+    }
+}

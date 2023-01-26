@@ -1,6 +1,28 @@
-.register{
+.register-container{
     height: 100vh;
     width: 100vw;
+    display: flex;
+    
+}
+
+.title-register{
+    font-size: 36px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.register-thumbnail{
+    background-image: url("../../components/utils/images/2.png");
+    flex: 2;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position:right;
+}
+
+.register{
+    flex: 3;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,26 +33,51 @@
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 75%;
     gap: 20px;
+}
+
+.register-box{
+    position: relative;
+}
+
+.register-box span{
+    position: absolute;
+    left: 0;
+    padding: 20px;
+    pointer-events: none;
+    color:lightgray;
+    transition: 0.5s;
 }
 
 .register-input{
     width: 100%;
-    padding: 10px;
-    border: none;
+    padding: 20px;
+    border: 1px solid black;
+    background-color:transparent;
     border-radius: 5px;
+    outline: none;
+}
+
+.register-box input:valid ~ span,
+.register-box input:focus ~ span{
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.70em;
+    padding: 0 10px;
+    background-color: #FFFF;
 }
 
 .submit-register{
-    padding: 10px;
+    width: 75%;
+    margin: auto;
+    padding: 15px;
     background-color: #3B82F6;
     color: white;
     font-weight: bold;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
-
+    text-transform: uppercase;
     box-shadow: 0px 12px 11px -2px rgba(0,0,0,0.30);
     -webkit-box-shadow: 0px 12px 11px -2px rgba(0,0,0,0.30);
     -moz-box-shadow: 0px 12px 11px -2px rgba(0,0,0,0.30);
@@ -49,19 +96,33 @@
     font-weight: bold;
 }
 .redirect-btn{
+    border: 1px solid #79747E;
+    background-color:transparent;
     text-decoration: none;
-    border-radius: 5px;
-    color: black;
-    width: 500px;
-    padding: 10px;
-    background-color:#FFF;
+    border-radius: 20px;
+    color: #3B82F6;
+    width: 75%;
+    margin: auto;
+    padding: 15px;
     font-weight: bold;
-    box-shadow: 0px 12px 11px -2px rgba(0,0,0,0.30);
-    -webkit-box-shadow: 0px 12px 11px -2px rgba(0,0,0,0.30);
-    -moz-box-shadow: 0px 12px 11px -2px rgba(0,0,0,0.30);
 }
 
 .errors {
     color: red;
     font-size: 10px;
+}
+
+
+@media (max-width: 992px) {
+
+    .register-form{
+        width: 90%;
+    }
+
+    .submit-register{
+        width: 90%;
+    }
+    .register-thumbnail{
+        display:none;
+    }
 }

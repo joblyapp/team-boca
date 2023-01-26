@@ -34,19 +34,30 @@ const Login = () => {
 
   }
   return (
-    <div className="register">
-      <h1 className="title">Iniciar Sesión</h1>
-      {alerta && <p className="alerta">{alerta}</p>}
-      <form className="register-form" onSubmit={handleSubmit}>
-        <input type="email" className="register-input" name='email' onChange={e => setEmail(e.target.value)} value={email} placeholder="Email o nombre de usuario"/>
-        <input type="password" className="register-input" name='password' onChange={e => setPassword(e.target.value)} value={password} placeholder="Password"/>
-        <input type="submit" className="submit-register" value='Iniciar Sesión'/>
-      </form>
+    <div className="login-container">
+      <div className="thumbnail">
+      </div>
+      <div className="login">
+        <h1 className="login-title">Iniciar Sesión</h1>
+        {alerta && <p className="alerta">{alerta}</p>}
+        <form className="register-form" onSubmit={handleSubmit}>
+          <div className="input-box">
+            <input type="email" className="login-input" name='email' onChange={e => setEmail(e.target.value)} value={email} required="required"/>
+            <span>Email</span>
+          </div>
+          <div className='input-box'>
+            <input type="password" className="login-input" name='password' onChange={e => setPassword(e.target.value)} value={password} required="required"/>
+            <span>Password</span>
+          </div>
+          <input type="submit" className="submit-login" value='Iniciar Sesión'/>
+          <span className='redirect-text-pw'>¿Olvidaste tu contraseña?</span>
+        </form>
 
-      <div className="redirect">
-        <span className='redirect-text-pw'>¿Olvidaste tu contraseña?</span>
-        <span className='redirect-text'>¿No tienes cuenta?</span>
-        <a href="#" className='redirect-btn'>Registrarse</a>
+        <div className="redirect">
+          <hr className="hr"/>
+          <span className='redirect-text'>¿No tienes cuenta?</span>
+          <a href="#" className='redirect-btn'>Registrarse</a>
+        </div>
       </div>
     </div>
   )

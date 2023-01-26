@@ -1,35 +1,35 @@
-import React from 'react'
 import CreatePost from '../../components/forms/createPost/CreatePost'
+import { useState } from 'react'
 import Post from '../../components/Post/Post'
 import Sidebar from '../../components/sidebar/Sidebar'
+import Suggestion from '../../components/Suggestion/Suggestion'
+
 import './Home.css'
+import Menu from '../../components/Menu/Menu'
+import Tabs from '../../components/Tabs/Tabs'
 const Home = () => {
+  
   return (
     <div className="home">
-        <Sidebar/>
+        <div className="sidebar-home">
+          <Sidebar/>
+        </div>
         <div className="home-container">
           <div className="home-feed">
-            <h1 className="title">Home</h1>
-            <CreatePost/>
-
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-          </div>          
-          <div className="home-search">
-            <form>
-              <input type="text" className="search-bar" name="search" placeholder="Buscar..."/>
-            </form>
-
-            <div className="recomended">
-              <h1>Recomendados</h1>
-              <div className="users">
-                <div className="user"></div>
-                <div className="user"></div>
-                <div className="user"></div>
-              </div>
+            <Menu nombre={"Home"}/>
+            <Tabs tab1={"Feed"} tab2={"Post Recomendados"}/>
+            <div className="home-content">
+              
+              <CreatePost/>
+              <Post/>
+              <Post/>
+              <Post/>
+              <Post/>  
             </div>
+            
+          </div>          
+          <div className="suggestion-home">
+            <Suggestion/>
           </div>
         </div>
     </div>

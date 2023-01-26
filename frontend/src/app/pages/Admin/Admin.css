@@ -31,4 +31,21 @@
 }
 
 
+@media (max-width: 992px) {
+    .admin-container{
+        width: 100vw;
+    }
+
+    .admin-feed{
+        width: 100vw;
+    }
+    .admin-sidebar{
+        display: none;
+    }
+
+    .admin-suggestion{
+        display: none;
+    }
+}
+
 

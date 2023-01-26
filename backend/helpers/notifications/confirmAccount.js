@@ -13,7 +13,7 @@ export default function confirmAccount(user){
         pass: `${process.env.EMAIL_PASS}`,
       },
     });
-    const urlConfirm = `http://${process.env.URL_FRONT}/confirm-account/${user.token}`
+    const urlConfirm = `https://${process.env.URL_FRONT}/confirm-account/${user.token}`
 
     return transporter
       .sendMail({

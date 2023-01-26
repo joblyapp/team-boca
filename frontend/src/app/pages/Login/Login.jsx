@@ -4,6 +4,9 @@ import {Link, useNavigate} from "react-router-dom"
 import {useDispatch, useSelector } from "react-redux"
 import { logIn } from '../../../redux/actions/userAction'
 import './Login.css'
+
+const url = process.env.REACT_APP_HOST
+
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -20,7 +23,7 @@ const Login = () => {
     }
 
     try {
-      const {data} = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/usuarios/login`, {email, password}) //TODO: Crear .env para esconder la url
+      const {data} = await axios.post(`https://${url}/api/usuarios/login`, {email, password}) //TODO: Crear .env para esconder la url
       setAlerta('')
       dispatch(logIn(data))
       localStorage.setItem('token', data.token)

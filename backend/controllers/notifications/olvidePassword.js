@@ -19,7 +19,7 @@ export const emailOlvidePassword = async (datos)=>{
         text: "Reestablece tú contraseña",
         html: `<p>Hola: ${nombre}, reestablece tú contraseña en FanzCars</p>
         <p>Para crear un nuevo password sigue el siguiente enlace:</p>
-        <a href="http://${process.env.URL_FRONT}/olvide-password/${token}">Reestablecer contraseña</a>
+        <a href="https://${process.env.URL_FRONT}/olvide-password/${token}">Reestablecer contraseña</a>
         <br>
         <p>Si tú no solicitaste este cambio, puedes ignorar este mensaje.</p>
         

@@ -2,6 +2,9 @@ import axios from 'axios'
 import {useEffect, useState} from 'react'
 import { Link, useParams } from 'react-router-dom'
 import "./NuevaPassword.css"
+
+const url = process.env.REACT_APP_HOST
+
 const NuevaPassword = () => {
     const [alerta, setAlerta] = useState({})
     const [tokenValido, setTokenValido] = useState(false)
@@ -13,7 +16,7 @@ const NuevaPassword = () => {
     useEffect(() => {
         const comprobarToken = async () =>{
             try {
-                const {data} = await axios(`http://localhost:4000/api/usuarios/olvide-password/${token}`)
+                const {data} = await axios(`https://${url}/api/usuarios/olvide-password/${token}`)
                 setTokenValido(true)
             } catch (error) {
                 setAlerta({
@@ -38,7 +41,7 @@ const NuevaPassword = () => {
         }
 
         try {
-            const {data} = await axios.post(`http://localhost:4000/api/usuarios/olvide-password/${token}`, {password})
+            const {data} = await axios.post(`https://${url}/api/usuarios/olvide-password/${token}`, {password})
             setAlerta({
                 msg: data.msg,
                 error:false

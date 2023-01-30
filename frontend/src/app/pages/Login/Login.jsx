@@ -3,7 +3,9 @@ import {useState} from 'react'
 import {Link, useNavigate} from "react-router-dom"
 import {useDispatch, useSelector } from "react-redux"
 import { logIn } from '../../../redux/actions/userAction'
+import { Spinner } from '../../components/utils/spinner/spinner'
 import './Login.css'
+
 
 const url = process.env.REACT_APP_HOST
 
@@ -11,12 +13,14 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [alerta, setAlerta] = useState('')
+  const [loading,setLoading] = useState(false)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const login = useSelector((state) => state.user.user)
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
     if([email, password].includes('')){
       setAlerta("Todos los campos son necesarios")
       return;
@@ -24,12 +28,15 @@ const Login = () => {
 
     try {
       const {data} = await axios.post(`${url}/api/usuarios/login`, {email, password}) //TODO: Crear .env para esconder la url
+      setLoading(false)
       setAlerta('')
       dispatch(logIn(data))
       localStorage.setItem('token', data.token)
       navigate("/")
       window.location.reload(true);
     } catch (error) {
+      setAlerta(JSON.parse(error.request.response).msg)
+      setLoading(false)
       console.log(error)
     }
 
@@ -40,6 +47,7 @@ const Login = () => {
       </div>
       <div className="login">
         <h1 className="login-title">Iniciar Sesión</h1>
+        {loading?<Spinner/>:<></>}
         {alerta && <p className="alerta">{alerta}</p>}
         <form className="register-form" onSubmit={handleSubmit}>
           <div className="input-box">

@@ -23,7 +23,7 @@ const OlvidePassword = () => {
         }
 
         try {
-            const {data} = await axios.post(`http://${url}/api/usuarios/olvide-password`, {email},{
+            const {data} = await axios.post(`${url}/api/usuarios/olvide-password`, {email},{
                 headers:{
                     'Authorization': `Bearer ${token}`,
                     'Accept' : 'application/json',

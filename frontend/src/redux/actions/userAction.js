@@ -18,7 +18,7 @@ export const logIn = (data) => (dispatch) => {
 export const logOut = () => async (dispatch) => {
     try {
         let user = JSON.parse(sessionStorage.getItem('userdata'))
-        let res = await axios.post(`https://${url}/user/logout`, user)
+        let res = await axios.post(`http://${url}/user/logout`, user)
         dispatch(getUser(res.data.loggedUser))
         return res.data.loggedUser
     } catch (error) {

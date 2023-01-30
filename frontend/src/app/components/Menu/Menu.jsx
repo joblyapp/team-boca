@@ -11,6 +11,12 @@ import Saved from "../../components/utils/images/saved.png"
 import Logout from "../../components/utils/images/logout.png"
 const Menu = ({nombre}) => {
   const [active, setActive] = useState(false)
+
+  const handleClick = (e)=>{
+    e.preventDefault()
+    localStorage.removeItem('token')
+    window.location.reload(true);
+}
   
   return (
     <>
@@ -28,7 +34,9 @@ const Menu = ({nombre}) => {
           </div>
 
           <div className="menu-mid">
+          <a href="/profile">
             <img src={Profile} alt='profile-icon' className="menu-profile"/>
+            </a>
             <div>
               <p>Jane Doe</p>
               <p>mail@mail.com</p>
@@ -38,12 +46,17 @@ const Menu = ({nombre}) => {
 
           <div className="menu-bottom">
             <div className="menu-link">
+            
               <img src={Home}/>
+              <a className="a-menu" href="/">
               <span>Home</span>
+              </a>
             </div>
             <div className="menu-link">
               <img src={Profile}/>
+              <a className="a-menu" href="/profile">
               <span>Mi perfil</span>
+              </a>
             </div>
             <div className="menu-link">
               <img src={Saved}/>
@@ -51,7 +64,7 @@ const Menu = ({nombre}) => {
             </div>
             <div className="menu-link">
               <img src={Logout}/>
-              <span>Cerrar sesión</span>
+              <span onClick={handleClick}>Cerrar sesión</span>
             </div>
 
           </div>

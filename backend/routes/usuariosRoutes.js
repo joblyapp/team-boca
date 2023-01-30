@@ -1,5 +1,6 @@
 import express from "express";
 import { registrar, login, getPublicUser, confirmAcc, olvidePassword, comprobarToken, nuevoPassword} from "../controllers/usuariosController.js"
+import auth from "../helpers/auth.js";
 const router = express.Router();
 
 router.post("/", registrar)

@@ -4,9 +4,12 @@ import "./OlvidePassword.css"
 
 const url = process.env.REACT_APP_HOST 
 
+
 const OlvidePassword = () => {
     const [email, setEmail] = useState('')
     const [alerta, setAlerta] = useState({})
+
+    let token = localStorage.getItem('token')
 
     const handleSubmit = async(e)=>{
         e.preventDefault();
@@ -20,11 +23,19 @@ const OlvidePassword = () => {
         }
 
         try {
-            const {data} = await axios.post(`https://${url}/api/usuarios/olvide-password`, {email})
+            const {data} = await axios.post(`http://${url}/api/usuarios/olvide-password`, {email},{
+                headers:{
+                    'Authorization': `Bearer ${token}`,
+                    'Accept' : 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            },{
+            })
             setAlerta({
                 msg: data.msg,
                 error: false
               })   
+              
         } 
         catch (error) {
             setAlerta({

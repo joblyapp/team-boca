@@ -23,13 +23,14 @@ const Login = () => {
     }
 
     try {
-      const {data} = await axios.post(`https://${url}/api/usuarios/login`, {email, password}) //TODO: Crear .env para esconder la url
+      const {data} = await axios.post(`http://${url}/api/usuarios/login`, {email, password}) //TODO: Crear .env para esconder la url
       setAlerta('')
       dispatch(logIn(data))
       localStorage.setItem('token', data.token)
       navigate("/")
+      window.location.reload(true);
     } catch (error) {
-      setAlerta(error.response.data.msg)
+      console.log(error)
     }
 
   }
@@ -50,13 +51,13 @@ const Login = () => {
             <span>Password</span>
           </div>
           <input type="submit" className="submit-login" value='Iniciar Sesión'/>
-          <span className='redirect-text-pw'>¿Olvidaste tu contraseña?</span>
+          <span className='redirect-text-pw'><a href="/olvide-password" className='redirect-text-pw'>¿Olvidaste tu contraseña?</a></span>
         </form>
 
         <div className="redirect">
           <hr className="hr"/>
           <span className='redirect-text'>¿No tienes cuenta?</span>
-          <a href="#" className='redirect-btn'>Registrarse</a>
+          <a href="/register" className='redirect-btn'>Registrarse</a>
         </div>
       </div>
     </div>

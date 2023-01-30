@@ -23,7 +23,7 @@ const Login = () => {
     }
 
     try {
-      const {data} = await axios.post(`http://${url}/api/usuarios/login`, {email, password}) //TODO: Crear .env para esconder la url
+      const {data} = await axios.post(`${url}/api/usuarios/login`, {email, password}) //TODO: Crear .env para esconder la url
       setAlerta('')
       dispatch(logIn(data))
       localStorage.setItem('token', data.token)

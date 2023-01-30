@@ -18,7 +18,7 @@ export const logIn = (data) => (dispatch) => {
 export const logOut = () => async (dispatch) => {
     try {
         let user = JSON.parse(sessionStorage.getItem('userdata'))
-        let res = await axios.post(`http://${url}/user/logout`, user)
+        let res = await axios.post(`${url}/user/logout`, user)
         dispatch(getUser(res.data.loggedUser))
         return res.data.loggedUser
     } catch (error) {
@@ -30,7 +30,7 @@ export const logOut = () => async (dispatch) => {
 
 export const confirmAcc = (token) => async (dispatch) => {
     try {
-        let res = await axios.get(`https://${url}/api/usuarios/confirm/${token}`)
+        let res = await axios.get(`${url}/api/usuarios/confirm/${token}`)
         dispatch(confirmCuenta(res.data))
     } catch (e) {
         let respuesta = JSON.parse(e.request.response);
@@ -46,7 +46,7 @@ export const confirmAcc = (token) => async (dispatch) => {
 
 export const postRegister = (payload) => async (dispatch) => {
     try {
-        let res = await axios.post(`https://${url}/api/usuarios`, payload)
+        let res = await axios.post(`${url}/api/usuarios`, payload)
 
         if (res) {
             alert(res.data.msg)

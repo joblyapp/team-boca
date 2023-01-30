@@ -45,12 +45,17 @@ const login = async (req, res) => {
     }
 
     if(await usuario.comprobarPassword(password)){
-        return res.json({
-            _id : usuario._id,
-            email: usuario.email,
-            nombre: usuario.username,
-            token: generarJWT(usuario._id)
-        })
+        try {
+            return res.json({
+                _id : usuario._id,
+                email: usuario.email,
+                nombre: usuario.username,
+                token: generarJWT(usuario._id)
+            })   
+        } catch (error) {
+            console.log(error + "Error en catch")
+        }
+        
     }else{
         const error = new Error("La contraseña es incorrecta")
         return res.status(403).json({msg : error.message})

@@ -36,12 +36,12 @@ const usuarioSchema = mongoose.Schema({
         default: false,
     },
     //TODO: Luego de implementar el modelo post descomentar saved
-    // saved: [
-    //     {
-    //       type: mongoose.Types.ObjectId,
-    //       ref: 'Post'
-    //     }
-    // ],
+    saved: [
+        {
+          type: mongoose.Types.ObjectId,
+          ref: 'Post'
+        }
+    ],
     followers: [
         {
           type: mongoose.Types.ObjectId,
